@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+Dockerfile
+.dockerignore
+/// docker run -p 8080:3000 bhaskar2610/URLShortener:v1
+/// docker build -t bhaskar2610/URLShortener:v1 .

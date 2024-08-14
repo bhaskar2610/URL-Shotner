@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb-server
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: Hello@123
+    volumes:
+      - ~/mongo/data:/data/db
+    networks:
+      - urlshortener-network
+    ports:
+      - "27017:27017"
+  node-app:
+    image: bhaskar2610/urlshortener:v1
+    container_name: urlshortener-server
+    ports:
+      - "8000:8000"
+    networks:
+      - urlshortener-network
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+networks:
+  urlshortener-network:
+    driver: bridge

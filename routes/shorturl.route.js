@@ -4,7 +4,7 @@ const router=express.Router();
 
 const {createURL, getURL}=require('../controller/shorturl.controller'); 
 
-router.post('/shorturl',createURL);
-router.get('/shorten/:shortCode',getURL);
+router.post('/',createURL);
+router.get('/:shortCode',getURL);
 
 module.exports=router;
